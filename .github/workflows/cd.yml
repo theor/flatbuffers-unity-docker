@@ -15,7 +15,7 @@ jobs:
       run: echo ::set-output name=version::${GITHUB_REF/refs\/tags\//}
 
     - name: Build Docker image
-      run: docker build -t gameroasters/flatbuffers-unity:${{ steps.get_version.outputs.version }} --build-arg FLATBUFFER_TAG=${{ steps.get_version.outputs.version }} -f Dockerfile .
+      run: docker build -t gameroasters/flatbuffers-unity:${{ steps.get_version.outputs.version }} --build-arg FLATBUFFER_TAG=2.0.0 -f Dockerfile .
 
     - name: Extract .net DLL
       run: make extract-dll
